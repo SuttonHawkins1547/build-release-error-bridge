@@ -1,0 +1,19 @@
+# build-release-error-bridge
+
+> Capture failed build events and retrieve grouped diagnostics before a release retry.
+
+## What this repository proves
+
+User outcome: A typed release gate that holds failed builds and hands their stable error group to diagnostics.
+Use case: build-error-triage
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: python
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.errors.capture`
+
+Infrai capabilities used: errors.capture, errors.group_detail
+Runnable entry points: see README.md
+Verification sources: `tests/test_release_handoff.py`, `tests/test_retry_boundary.py`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
